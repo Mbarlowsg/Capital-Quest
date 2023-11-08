@@ -1,0 +1,13 @@
+/** @format */
+
+.card_container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.card {
+	background-color: blue;
+	height: 200px;
+	width: 150px;
+	margin: 5px;
+}
