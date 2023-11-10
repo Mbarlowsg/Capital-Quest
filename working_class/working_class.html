@@ -15,13 +15,27 @@
 	<body>
 		<div>
 			<h1>Working Class</h1>
-			<button>Card Log</button>
+			<button id="card_log_button">Card Log</button>
 			<button>New Game</button>
 		</div>
 		<br />
 		<div id="card_container" class="card_container"></div>
 		<dialog id="card_modal" data-modal>
-			<div id="card_display"><h1>test</h1></div>
+			<div id="card_display"></div>
+		</dialog>
+		<dialog id="card_log">
+			<div id="card_log_display">
+				<table border="1">
+					<thead>
+						<tr>
+							<th scope="col">Card Index</th>
+							<th scope="col">Card Title</th>
+							<th scope="col">Card ID</th>
+						</tr>
+					</thead>
+					<tbody id="card_log_body"></tbody>
+				</table>
+			</div>
 		</dialog>
 	</body>
 </html>

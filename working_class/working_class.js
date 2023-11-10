@@ -55,31 +55,37 @@ const working_class_cards = [
 ];
 
 let cardDeck = [];
-let playedCards = [];
+let usedCards = [];
 let playerHand = [];
 
 let playerHandSize = 5;
 
+// Used to log all cards played in the game
+let playedCardsLog = [];
+
+const cardLogOpenButton = document.getElementById("card_log_button");
+
 window.onload = () => {
 	fillCardDeck();
 	fillPlayerHand();
+	setupCardLog();
 };
 
 // fills cardDeck directly from working_class_cards
 function fillCardDeck() {
 	working_class_cards.forEach((card) => {
 		cardDeck.push(card);
-		shuffleCards();
 	});
+	shuffleCards();
 }
 
 // refills cardDeck with the already-played cards
 function refillCardDeck() {
-	playedCards.forEach((card) => {
+	usedCards.forEach((card) => {
 		cardDeck.push(card);
-		shuffleCards();
 	});
-	playedCards = [];
+	shuffleCards();
+	usedCards = [];
 }
 
 // Called every time a card is played
@@ -106,24 +112,13 @@ function fillPlayerHand() {
         `;
 
 		cardElement.innerHTML = elementHTML;
-		setupModal(cardElement, currentCard);
+		setupCardModal(cardElement, currentCard);
 
 		document.getElementById("card_container").appendChild(cardElement);
 
 		playerHand.push(currentCard);
 	}
 }
-
-// function testFillCardDeck(numCards) {
-// 	for (let i = 0; i < numCards; i++) {
-// 		let cardObject = {
-// 			index: i,
-// 			title: `test-${i}`,
-// 			id: Date.now() * i + 1,
-// 		};
-// 		cardDeck.push(cardObject);
-// 	}
-// }
 
 function shuffleCards() {
 	for (let i = cardDeck.length - 1; i > 0; i--) {
@@ -134,7 +129,8 @@ function shuffleCards() {
 	}
 }
 
-function setupModal(cardElement, cardObject) {
+function setupCardModal(cardElement, cardObject) {
+	// Setup for card page modals
 	const openButton = cardElement;
 	const modal = document.getElementById("card_modal");
 
@@ -153,9 +149,9 @@ function setupModal(cardElement, cardObject) {
 		playCardButton.onclick = () => {
 			modal.close();
 			playerHand.splice(playerHand.indexOf(cardObject), 1);
-			playedCards.push(cardObject);
+			usedCards.push(cardObject);
+			playedCardsLog.push(cardObject);
 			document.getElementById(`card_${cardObject.id}`).remove();
-			console.log(cardDeck);
 			checkCardDeck();
 		};
 
@@ -165,4 +161,37 @@ function setupModal(cardElement, cardObject) {
 			modal.close();
 		};
 	});
+}
+
+function setupCardLog() {
+	cardLogOpenButton.addEventListener("click", () => {
+		const modal = document.getElementById("card_log");
+		modal.showModal();
+		const cardLogDisplay = document.getElementById("card_log_body");
+		cardLogDisplay.innerHTML = "";
+
+		for (let i = playedCardsLog.length - 1; i >= 0; i--) {
+			let itemHTML = `
+            <td>${i + 1}</td>
+            <td>${playedCardsLog[i].title}</td>
+            <td>${playedCardsLog[i].id}</td>
+            `;
+			const logElement = document.createElement("tr");
+
+			logElement.innerHTML = itemHTML;
+			cardLogDisplay.appendChild(logElement);
+		}
+	});
+}
+
+// used to fill the card deck with test cards
+function mockCardDeck(numCards) {
+	for (let i = 0; i < numCards; i++) {
+		let cardObject = {
+			index: i,
+			title: `test-${i}`,
+			id: Date.now() * i + 1,
+		};
+		cardDeck.push(cardObject);
+	}
 }
