@@ -1,7 +1,7 @@
 /** @format */
 
 // IK its named weirdly, it just helps it stick out.
-const working_class_cards = [
+const WORKINGCLASSCARDS = [
 	{
 		title: "Title 0",
 		index: 0,
@@ -66,14 +66,14 @@ let playedCardsLog = [];
 const cardLogOpenButton = document.getElementById("card_log_button");
 
 window.onload = () => {
-	fillCardDeck();
+	mockCardDeck(15); // change to fillCardDeck() to use WORKINGCLASSCARDS list
 	fillPlayerHand();
 	setupCardLog();
 };
 
-// fills cardDeck directly from working_class_cards
+// fills cardDeck directly from WORKINGCLASSCARDS
 function fillCardDeck() {
-	working_class_cards.forEach((card) => {
+	WORKINGCLASSCARDS.forEach((card) => {
 		cardDeck.push(card);
 	});
 	shuffleCards();
@@ -109,6 +109,7 @@ function fillPlayerHand() {
 
 		let elementHTML = `
         <h1>${currentCard.title}</h1>
+		<p>${currentCard.description}<p>
         `;
 
 		cardElement.innerHTML = elementHTML;
@@ -190,8 +191,10 @@ function mockCardDeck(numCards) {
 		let cardObject = {
 			index: i,
 			title: `test-${i}`,
+			description: `desc-${i}`,
 			id: Date.now() * i + 1,
 		};
 		cardDeck.push(cardObject);
 	}
+	shuffleCards();
 }
