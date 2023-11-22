@@ -43,8 +43,9 @@ Reputation cards have an amount between 1-2 and others can vote on up or down e
 ## Flow of Gameplay:
 
 ### 1. Start:
-- All players receive $100,000.
-- Each group draws three *Goal cards* from their deck and chooses one from the selection.
+- The players are split into three groups: Government, Corporation and Working Class.
+- All groups receive $100,000.
+- Each group draws three *Goal cards* from their corresponding deck of *Goal cards* and chooses one from the selection.
 
 ### 2. Player turns:
 - The government begins the game by drawing the first policy card (*2a*) followed by drawing a chance card after the policy passes/fails (*2b*).
