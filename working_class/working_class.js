@@ -107,6 +107,7 @@ function fillPlayerHand() {
 		cardElement.classList.add("draggable");
 		cardElement.setAttribute("draggable", "true");
 
+		// Displayed HTML on the card
 		let elementHTML = `
         <h1>${currentCard.title}</h1>
 		<p>${currentCard.description}<p>
