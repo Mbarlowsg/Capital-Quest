@@ -4,7 +4,8 @@ Welcome to Capital Quest! A game where your main objective is to manage your mon
 
 In this game you will be split into three groups: *Government*, *Corporations* & *Working Class*. Groups may have as many people as you want in them, but please keep the group size as equal as is practical. At the beginning of the game each team will receive 100.000 *Money*. This money is circulated between the teams through *income* and *tax* (diagram below). *Income* and *tax* are paid at the beginning of each round and *income* is always paid before *tax*.
 
-LINK TO DIAGRAM HERE
+## Tax/Income Diagram:
+![LINK TO DIAGRAM HERE](https://github.com/Mbarlowsg/GTS-final-game/blob/2d74b8b00bc97e63b89a933b0c9eb832787c8f9e/income-tax%20diagram.png)
 
 
 The game begins with each group will drawing three *Goal Cards* from their respective decks and selecting one of the three goals. Each group's selected *Goal Card* is the goal that the group should work towards during the game. These goals should be kept secret from the other groups. The game ends when 10 rounds have been played or a group runs out of money. At that point the group that is closest to achieving their goal is the winner.
