@@ -3,52 +3,62 @@
 // IK its named weirdly, it just helps it stick out.
 const WORKINGCLASSCARDS = [
 	{
-		title: "Title 0",
+		title: "Fair Wage Legislation",
+        description: "Advocate for policy that ensure fair wages for workers.\n\nChallenge and try to stop the government and corporations from making too much money",
 		index: 0,
 		id: 0,
 	},
 	{
-		title: "Title 1",
-		index: 1,
+		title: "Labor Rights",
+		description: "Advocate for policy that ensure better worker treatment. \n\nDo your best to stop any policy or actions that hinder worker rights!",
+        index: 1,
 		id: 1,
 	},
 	{
-		title: "Title 2",
+		title: "Cost of Living",
+        description: "Challenge and dispute unfair rising living costs. \n\n As costs are climbing, be sure to challenge any unfair price hikes that the government and corporations set forth as the game progresses.",
 		index: 2,
 		id: 2,
 	},
 	{
-		title: "Title 3",
+		title: "Power to the People",
+        description: "Your goal is to make sure the working class rise up! \n\nTo maintain a sense of power, do everything you can to make and hoard wealth for the working class.",
 		index: 3,
 		id: 3,
 	},
 	{
-		title: "Title 4",
+		title: "Community Protection",
+        description: "Prioritize the working class safety and wellbeing as a community.\n\nDo whatever you can to stop unfair policies against the working class from being implemented!",
 		index: 4,
 		id: 4,
 	},
 	{
-		title: "Title 5",
+		title: "Mortal Enemies",
+        description: "Choose between either corporations and government, and try and stop every policy they implement. Who cares about what they say, anyways?",
 		index: 5,
 		id: 5,
 	},
 	{
-		title: "Title 6",
+		title: "Lobbying",
+        description: "Lobby against the government, no matter the cost. \n\nTry and get the policy card holders to veto their cards as much as you can!",
 		index: 6,
 		id: 6,
 	},
 	{
-		title: "Title 7",
+		title: "Reaganomics!",
+        description: "Align yourelf with corporations for the game.\n\nConsistently challenge what the government and policy do, if it hurts corporations.",
 		index: 7,
 		id: 7,
 	},
 	{
-		title: "Title 8",
+		title: "Government Alignment",
+        description: "Align yourelf with the government for the game.\n\nConsistently challenge what the corporations and policy do, if it hurts government.",
 		index: 8,
 		id: 8,
 	},
 	{
-		title: "Title 9",
+		title: "Corruption",
+        description: "You are a corrupted, scorned, damaged working class. You got issues.\n\nDo whatever is needed at all costs to stop others from doing 'good things.' Also, hoard wealth.",
 		index: 9,
 		id: 9,
 	},
@@ -66,7 +76,7 @@ let playedCardsLog = [];
 const cardLogOpenButton = document.getElementById("card_log_button");
 
 window.onload = () => {
-	mockCardDeck(15); // change to fillCardDeck() to use WORKINGCLASSCARDS list
+	fillCardDeck(); // change to fillCardDeck() to use WORKINGCLASSCARDS list || mockCardDeck(num)
 	fillPlayerHand();
 	setupCardLog();
 };
@@ -109,7 +119,7 @@ function fillPlayerHand() {
 
 		// Displayed HTML on the card
 		let elementHTML = `
-        <h1>${currentCard.title}</h1>
+        <h2>${currentCard.title}</h2>
 		<p>${currentCard.description}<p>
         `;
 
@@ -142,6 +152,7 @@ function setupCardModal(cardElement, cardObject) {
 		// Displayed content
 		modal.innerHTML = `
         <h1>${cardObject.title}</h1>
+        <p>${cardObject.description}</p>
         <button id="play_card_button" data-play-card>Play Card</button>
         <button data-close-modal>close</button>
         `;
